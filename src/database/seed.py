@@ -1,8 +1,6 @@
-from datetime import date
-
 from faker import Faker
 from sqlalchemy.orm import Session
-from src.database.db import SessionLocal, engine
+from src.database.db import SessionLocal
 from src.database.models import Contact
 from src.schemas import ContactModel
 
@@ -21,11 +19,6 @@ def create_contact(contact: ContactModel, db: Session = SessionLocal):
     return contact
 
 
-# def delete_contact():
-#     Contact.__table__.drop(engine)
-#     print('Succes')
-
-
 if __name__ == '__main__':
     for i in range(10):
         new_contact = Contact(
@@ -37,4 +30,3 @@ if __name__ == '__main__':
             additional_info=fake.paragraph()
         )
         create_contact(contact=new_contact, db=database)
-    # delete_contact()
