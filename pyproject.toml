@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "homework-11"
+version = "0.1.0"
+description = ""
+authors = ["Oleksii Latypov <oleksii.latypov.la@gmail.com>"]
+readme = "README.md"
+packages = [{include = "homework_11"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.95.1"
+uvicorn = {extras = ["standart"], version = "^0.21.1"}
+sqlalchemy = "^2.0.9"
+psycopg2 = "^2.9.6"
+alembic = "^1.10.3"
+pydantic = {extras = ["email"], version = "^1.10.7"}
+faker = "^18.4.0"
+python-multipart = "^0.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
