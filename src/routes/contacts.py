@@ -26,13 +26,13 @@ async def get_contact(contact_id: int, db: Session = Depends(get_db)):
     return contact
 
 
-@router.post('/create', response_model=ResponseContact)
+@router.post('/', response_model=ResponseContact)
 async def create_contact(body: ContactModel, db: Session = Depends(get_db)):
     new_contact = await crud.create_contact(body, db)
     return new_contact
 
 
-@router.put('/update/{contact_id}', response_model=ResponseContact)
+@router.put('/{contact_id}', response_model=ResponseContact)
 async def update_contact(body: ContactModel, contact_id: int, db: Session = Depends(get_db)):
     contact = await crud.update_contact(body, contact_id, db)
     if contact is None:
@@ -40,7 +40,7 @@ async def update_contact(body: ContactModel, contact_id: int, db: Session = Depe
     return contact
 
 
-@router.delete('/delete/{contact_id}', response_model=ResponseContact)
+@router.delete('/{contact_id}', response_model=ResponseContact)
 async def remove_contact(contact_id: int, db: Session = Depends(get_db)):
     contact = await crud.remove_contact(contact_id, db)
     if contact is None:
